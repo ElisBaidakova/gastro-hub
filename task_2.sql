@@ -12,9 +12,10 @@ CREATE MATERIALIZED VIEW check_dynamics AS
         select
         distinct extract('year' from report_date::date) as check_year,
         restaurant_uuid,
-        ROUND(avg(avg_check) over (partition by restaurant_uuid order by extract('year' from report_date::date)), 2) as current_check
+        ROUND(avg(avg_check)) as current_check
         from cafe.sales
         where extract('year' from report_date::date) != 2023
+        group by restaurant_uuid, check_year
         order by restaurant_uuid, check_year
         ) statistic 
     join cafe.restaurants using (restaurant_uuid)

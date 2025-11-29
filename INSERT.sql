@@ -8,8 +8,10 @@ insert into cafe.managers(manager, manager_phone)
 select distinct manager, manager_phone
 from raw_data.sales;
 
-insert into cafe.restaurant_manager_work_dates(restaurant_uuid, manager_uuid)
-select distinct restaurant_uuid, manager_uuid
+insert into cafe.restaurant_manager_work_dates(restaurant_uuid, manager_uuid, date_start, date_end)
+select distinct restaurant_uuid, manager_uuid,
+min(report_date) over (partition by cafe_name, manager),
+max(report_date) over (partition by cafe_name, manager)
 from cafe.restaurants
 join raw_data.sales using(cafe_name)
 join cafe.managers using(manager);
