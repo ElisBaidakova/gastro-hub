@@ -1,4 +1,3 @@
-/*Добавьте в этот файл запросы, которые наполняют данными таблицы в схеме cafe данными*/
 insert into cafe.restaurants(cafe_name, type, menu)
 select distinct cafe_name, type::cafe.restaurant_type, menu
 from raw_data.sales
