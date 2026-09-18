@@ -1,4 +1,4 @@
-/*добавьте сюда запрос для решения задания 5*/
+/*Находим самую дорогую пиццу для каждой пиццерии*/
 select distinct name_and_price.cafe_name, dish, pizzas_name, max_price
 from (
     select
