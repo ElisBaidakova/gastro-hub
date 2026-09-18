@@ -1,4 +1,4 @@
-/*добавьте сюда запрос для решения задания 1*/
+/*Создаём представление, которое покажет топ-3 заведения внутри каждого типа заведений по среднему чеку за все даты*/
 select distinct restaurants.cafe_name, restaurants.type, ROUND(avg_avg_check, 2) as avg_check
 from cafe.restaurants
 join (
