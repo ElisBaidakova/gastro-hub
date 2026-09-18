@@ -1,5 +1,3 @@
-/*Добавьте в этот файл все запросы, для создания схемы сafe и
- таблиц в ней в нужном порядке*/
 create schema cafe;
 
 CREATE TYPE cafe.restaurant_type AS ENUM ('coffee_shop', 'restaurant', 'bar', 'pizzeria');
