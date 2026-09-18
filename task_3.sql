@@ -1,4 +1,4 @@
-/*добавьте сюда запрос для решения задания 3*/
+/*Находим топ-3 заведения, где чаще всего менялся менеджер за весь период*/
 SELECT
 distinct cafe_name,
 COUNT(manager_uuid) over(partition by restaurant_uuid) as managers_count
